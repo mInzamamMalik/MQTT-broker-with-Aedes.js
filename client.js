@@ -1,21 +1,35 @@
-// const mqtt = require('mqtt');
-// var client = mqtt.connect('mqtt://iot.eclipse.org');
+var mqtt = require('mqtt')
+var client = mqtt.connect('mqtt://test.mosquitto.org')
 
-// client.on('connect', function () {
-//     client.subscribe('Topic07');
-//     console.log('client has subscribed successfully');
-// });
+client.on('connect', function (connection) {
 
-// client.on('connect', function () {
-//     setInterval(function () { client.publish('Topic07', 'cricket'); }, 3000);
-// });
+    console.log("connected to broker", connection);
 
-// client.on('message', function (topic, message) {
-//     console.log(message.toString()); //if toString is not given, the message comes as buffer
-// });
+    client.subscribe('test', function (err) {
+        if (!err) {
+            //   client.publish('presence', 'Hello mqtt')
+        }
+    })
+})
+
+client.on('message', function (topic, message) {
+    // message is Buffer
+    console.log("message received: ", message.toString())
+    client.end()
+})
 
 
-var aedes = require('aedes')()
+// var aedes = require('aedes')()
 
+
+
+// aedes.subscribe("test",
+//     function (packet, cb) {
+//         console.log("packet received: ",  packet.payload.toString()   );
+//         cb(); //call this after receiving message
+//     },
+//     function () { // one time callback
+//         console.log("listening for topic test");
+//     })
 
 
