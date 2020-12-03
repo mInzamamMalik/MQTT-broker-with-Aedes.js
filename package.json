@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/malikasinger1/MQTT-hello-world#readme",
   "dependencies": {
-    "mosca": "^2.8.3"
+    "aedes": "^0.44.0",
+    "mqtt": "^4.2.6"
   }
 }
